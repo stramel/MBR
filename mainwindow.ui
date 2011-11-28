@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>391</width>
+    <height>219</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>D:/Downloads/Map-icon.png</normaloff>D:/Downloads/Map-icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>150</y>
+      <width>391</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="runButton">
+       <property name="text">
+        <string>Run</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="ResultBox">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>171</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Results</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>20</y>
+       <width>151</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <widget class="QLabel" name="labelHighPhi">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;High &amp;#966;:&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="labelLowPhi">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;Low &amp;#966;:&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelLowLambda">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;Low &amp;#955;:&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelHighLambda">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;High &amp;#955;:&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="resultHighLambda">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="resultLowLambda">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="resultHighPhi">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="resultLowPhi">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="InputBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>181</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Input</string>
+    </property>
+    <widget class="QWidget" name="formLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>161</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="fieldGrowthPolicy">
+       <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="IlabelHighLambda">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;High &amp;#955;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="inputHighLambda"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="inputLowLambda"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="inputHighPhi"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLineEdit" name="inputLowPhi"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="IlabelLowLambda">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;Low &amp;#955;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="IlabelHighPhi">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;High &amp;#966;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="IlabelLowPhi">
+        <property name="styleSheet">
+         <string notr="true">font-weight:bold;</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;body&gt;Low &amp;#966;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="errorLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>180</y>
+      <width>389</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:rgb(255,0,0);
+font-weight:bold;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="okLabel">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>180</y>
+      <width>391</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(0, 170, 0);
+font-weight:bold;
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>391</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMBR_Tile_Cache">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="menuExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="menuUserGuide"/>
+    <addaction name="menuAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuTests">
+    <property name="title">
+     <string>Tests</string>
+    </property>
+    <addaction name="menuLineEditTest"/>
+    <addaction name="menuProcessInputTest"/>
+    <addaction name="menuComputeTest"/>
+   </widget>
+   <addaction name="menuMBR_Tile_Cache"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuTests"/>
+  </widget>
+  <action name="menuUserGuide">
+   <property name="text">
+    <string>User Guide</string>
+   </property>
+  </action>
+  <action name="menuAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="menuExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="menuTest">
+   <property name="text">
+    <string>Test</string>
+   </property>
+  </action>
+  <action name="menuLineEditTest">
+   <property name="text">
+    <string>Line Edit Validator</string>
+   </property>
+  </action>
+  <action name="menuProcessInputTest">
+   <property name="text">
+    <string>Test ProcessInput Function</string>
+   </property>
+  </action>
+  <action name="menuComputeTest">
+   <property name="text">
+    <string>Test Compute Function</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>inputHighLambda</tabstop>
+  <tabstop>inputLowLambda</tabstop>
+  <tabstop>inputHighPhi</tabstop>
+  <tabstop>inputLowPhi</tabstop>
+  <tabstop>runButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>menuExit</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>98</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
