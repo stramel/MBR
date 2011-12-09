@@ -6,8 +6,6 @@
 #include <QtDebug>
 #include <iostream>
 
-
-
 void MainWindow::testLineEdits()
 {
     ui->inputHighLambda->setText("");
@@ -26,27 +24,22 @@ void MainWindow::testLineEdits()
     eventsHL.addDelay(500);
     eventsHL.simulate(ui->inputHighLambda);
     QCOMPARE(ui->inputHighLambda->text(), correct);
-    //std::cout << "\nCASE 1: TRUE" << std::endl;
 
     eventsLL.addKeyClicks("!@#$%1234.*56(^$789"); //CASE: Mixed Numbers and Symbols
     eventsLL.addDelay(500);
     eventsLL.simulate(ui->inputLowLambda);
     QCOMPARE(ui->inputLowLambda->text(), correct);
-    //std::cout << "CASE 2: TRUE" << std::endl;
 
     eventsHP.addKeyClicks("1$2d3^4vb.5@#FDR^6*$#7FD8%GF9"); //CASE: Mixed Numbers, Characters, & Symbols
     eventsHP.addDelay(500);
     eventsHP.simulate(ui->inputHighPhi);
     QCOMPARE(ui->inputHighPhi->text(), correct);
-    //std::cout << "CASE 3: TRUE" << std::endl;
 
     eventsLP.addKeyClicks("1234.567890"); //CASE: More than 5 decimals
     eventsLP.addDelay(500);
     eventsLP.simulate(ui->inputLowPhi);
     QCOMPARE(ui->inputLowPhi->text(), correct);
-    //std::cout << "CASE 4: TRUE" << std::endl;
 
-    //std::cout << "TEST COMPLETE" << std::endl;
     ui->errorLabel->hide();
     ui->okLabel->setText("TEST COMPLETED WITH NO ERRORS");
     ui->okLabel->show();
@@ -73,7 +66,6 @@ void MainWindow::testProcessInput()
     events.addDelay(1000);
     events.simulate(ui->runButton);
     QCOMPARE(ui->errorLabel->text(), value1); //CASE: Not all input fields are filled in
-    //std::cout << "\nCASE 1: TRUE" << std::endl;
 
     eventsHL.addKeyClicks("8");
     eventsHL.addDelay(500);
@@ -89,9 +81,7 @@ void MainWindow::testProcessInput()
     eventsLP.simulate(ui->inputLowPhi);
     events.simulate(ui->runButton);
     QCOMPARE(ui->errorLabel->text(), value2); //CASE: Values not in correct order(ie. High is not > Low)
-    //std::cout << "CASE 2: TRUE" << std::endl;
 
-    //std::cout << "TEST COMPLETE" << std::endl;
     ui->errorLabel->hide();
     ui->okLabel->setText("TEST COMPLETED WITH NO ERRORS");
     ui->okLabel->show();
@@ -127,7 +117,6 @@ void MainWindow::testCompute()
     events.addDelay(500);
     events.simulate(ui->runButton);
     QCOMPARE(ui->okLabel->text(), QString("The points are the same"));
-    //std::cout << "\nCASE 1: TRUE" << std::endl;
 
     //CASE 2: Delta Lambda is Greater
     eventsLP.clear();
@@ -138,7 +127,6 @@ void MainWindow::testCompute()
     events.simulate(ui->runButton);
     QCOMPARE(ui->okLabel->text(), QString("New points are listed"));
     QCOMPARE(ui->resultHighPhi->text(), QString("6"));
-    //std::cout << "CASE 2: TRUE" << std::endl;
 
     //CASE 3: 2*Delta Phi is Greater
     eventsHP.clear();
@@ -154,9 +142,7 @@ void MainWindow::testCompute()
     events.simulate(ui->runButton);
     QCOMPARE(ui->okLabel->text(), QString("New points are listed"));
     QCOMPARE(ui->resultHighLambda->text(), QString("10"));
-    //std::cout << "CASE 3: TRUE" << std::endl;
 
-    //std::cout << "TEST COMPLETE" << std::endl;
     ui->errorLabel->hide();
     ui->okLabel->setText("TEST COMPLETED WITH NO ERRORS");
     ui->okLabel->show();
