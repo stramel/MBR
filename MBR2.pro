@@ -20,11 +20,20 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 CONFIG += qtestlib
-CONFIG += static
-CONFIG -= console
+
+static {
+    CONFIG += static
+    CONFIG += staticlib
+    DEFINES += STATIC
+    message("~~~ Static Build ~~~")
+}
+
+CONFIG(debug, debug|release) {
+    mac: TARGET = $$join(TARGET,,,_debug)
+    win32: TARGET = $$join(TARGET,,,d)
+}
 
 RC_FILE = mbrico.rc
-ICON = Map.icns
 
 RESOURCES += MBRimages.qrc
 
