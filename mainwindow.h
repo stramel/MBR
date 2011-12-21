@@ -20,6 +20,7 @@ public:
 public slots:
     void processInput();
     void showAbout();
+    void launchGuide();
 
 private:
     Ui::MainWindow *ui;

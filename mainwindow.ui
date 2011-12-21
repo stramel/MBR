@@ -14,8 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>D:/Downloads/Map-icon.png</normaloff>D:/Downloads/Map-icon.png</iconset>
+   <iconset resource="MBRimages.qrc">
+    <normaloff>:/Resources/Map-icon.png</normaloff>:/Resources/Map-icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
@@ -337,8 +337,8 @@ font-weight:bold;
     <addaction name="menuComputeTest"/>
    </widget>
    <addaction name="menuMBR_Tile_Cache"/>
-   <addaction name="menuHelp"/>
    <addaction name="menuTests"/>
+   <addaction name="menuHelp"/>
   </widget>
   <action name="menuUserGuide">
    <property name="text">
@@ -384,11 +384,13 @@ font-weight:bold;
   <tabstop>inputLowPhi</tabstop>
   <tabstop>runButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="MBRimages.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>menuExit</sender>
-   <signal>activated()</signal>
+   <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>close()</slot>
    <hints>

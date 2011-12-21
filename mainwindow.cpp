@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QDialog>
 #include <QDesktopWidget>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QDir>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->runButton, SIGNAL(clicked()), this, SLOT(processInput()));
     connect(ui->menuAbout, SIGNAL(triggered()), this, SLOT(showAbout()));
+    connect(ui->menuUserGuide, SIGNAL(triggered()), this, SLOT(launchGuide()));
 
     connect(ui->menuLineEditTest, SIGNAL(triggered()), this, SLOT(testLineEdits()));
     connect(ui->menuProcessInputTest, SIGNAL(triggered()), this, SLOT(testProcessInput()));
@@ -92,13 +96,23 @@ void MainWindow::showAbout()
     about.setFixedSize(245,165);
     about.setWindowModality(Qt::WindowModal);
     QVBoxLayout *layout = new QVBoxLayout;
-    QLabel *label = new QLabel("BLAH");
+    QLabel *image = new QLabel("<img src=\":/Resources/logo.png\" />");
+    QLabel *label = new QLabel("<span style=\"font-weight:bold;\">MBR v1.0<br /><br /></span>Its source and binaries are provided without any warranty or support.<br />");
     label->setWordWrap(true);
+    label->setMaximumWidth(245);
+    label->setMinimumWidth(235);
     QPushButton *ok = new QPushButton("Ok");
     connect(ok, SIGNAL(clicked()), &about, SLOT(hide()));
     ok->setFixedWidth(75);
-    layout->addWidget(label, 0, Qt::AlignAbsolute);
+    layout->addWidget(image, 0,Qt::AlignAbsolute);
+    layout->addWidget(label, 0, Qt::AlignLeading);
     layout->addWidget(ok, 0, Qt::AlignHCenter);
     about.setLayout(layout);
     about.exec();
+}
+
+void MainWindow::launchGuide()
+{
+    QString file = QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/UserGuide.pdf");
+    QDesktopServices::openUrl(QUrl("file:///" + file));
 }

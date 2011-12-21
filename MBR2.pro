@@ -6,12 +6,13 @@
 
 QT       += core gui
 
-TARGET = MBR2
+TARGET = MBR
+
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+        mainwindow.cpp\
         test.cpp
 
 HEADERS  += mainwindow.h
@@ -19,6 +20,14 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 CONFIG += qtestlib
+CONFIG += static
+CONFIG -= console
+
+RC_FILE = mbrico.rc
+ICON = Map.icns
+
+RESOURCES += MBRimages.qrc
+
 
 
 

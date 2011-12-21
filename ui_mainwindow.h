@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu Dec 1 18:31:13 2011
-**      by: Qt User Interface Compiler version 4.7.4
+** Created: Wed Dec 21 11:19:56 2011
+**      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -81,7 +81,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(391, 219);
         QIcon icon;
-        icon.addFile(QString::fromUtf8("D:/Downloads/Map-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/Resources/Map-icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         menuUserGuide = new QAction(MainWindow);
         menuUserGuide->setObjectName(QString::fromUtf8("menuUserGuide"));
@@ -271,8 +271,8 @@ public:
         QWidget::setTabOrder(inputLowPhi, runButton);
 
         menuBar->addAction(menuMBR_Tile_Cache->menuAction());
-        menuBar->addAction(menuHelp->menuAction());
         menuBar->addAction(menuTests->menuAction());
+        menuBar->addAction(menuHelp->menuAction());
         menuMBR_Tile_Cache->addAction(menuExit);
         menuHelp->addAction(menuUserGuide);
         menuHelp->addAction(menuAbout);
@@ -281,7 +281,7 @@ public:
         menuTests->addAction(menuComputeTest);
 
         retranslateUi(MainWindow);
-        QObject::connect(menuExit, SIGNAL(activated()), MainWindow, SLOT(close()));
+        QObject::connect(menuExit, SIGNAL(triggered()), MainWindow, SLOT(close()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi

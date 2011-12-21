@@ -1,10 +1,8 @@
-#include <QtTest/QtTest>
-#include <QTestEventList>
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QtDebug>
-#include <iostream>
+//#include <QtDebug>
+//#include <iostream>
+#include <QTestEventList>
 
 void MainWindow::testLineEdits()
 {
