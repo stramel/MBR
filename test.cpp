@@ -3,9 +3,18 @@
 //#include <QtDebug>
 //#include <iostream>
 #include <QTestEventList>
+#include <QMessageBox>
 
 void MainWindow::testLineEdits()
 {
+    if(!testlock.tryLock())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Error: Another test is running.");
+        msgBox.exec();
+        return;
+    }
+
     ui->inputHighLambda->setText("");
     ui->inputHighPhi->setText("");
     ui->inputLowLambda->setText("");
@@ -41,16 +50,25 @@ void MainWindow::testLineEdits()
     ui->errorLabel->hide();
     ui->okLabel->setText("TEST COMPLETED WITH NO ERRORS");
     ui->okLabel->show();
+
+    testlock.unlock();
 }
 
 void MainWindow::testProcessInput()
 {
+    if(!testlock.tryLock())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Error: Another test is running.");
+        msgBox.exec();
+        return;
+    }
+
     ui->inputHighLambda->setText("");
     ui->inputHighPhi->setText("");
     ui->inputLowLambda->setText("");
     ui->inputLowPhi->setText("");
     ui->okLabel->hide();
-
 
     QTestEventList events;
     QTestEventList eventsHL;
@@ -83,15 +101,26 @@ void MainWindow::testProcessInput()
     ui->errorLabel->hide();
     ui->okLabel->setText("TEST COMPLETED WITH NO ERRORS");
     ui->okLabel->show();
+
+    testlock.unlock();
 }
 
 void MainWindow::testCompute()
 {
+    if(!testlock.tryLock())
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Error: Another test is running.");
+        msgBox.exec();
+        return;
+    }
+
     ui->inputHighLambda->setText("");
     ui->inputHighPhi->setText("");
     ui->inputLowLambda->setText("");
     ui->inputLowPhi->setText("");
     ui->okLabel->hide();
+
     QTestEventList events;
     QTestEventList eventsHL;
     QTestEventList eventsLL;
@@ -144,4 +173,6 @@ void MainWindow::testCompute()
     ui->errorLabel->hide();
     ui->okLabel->setText("TEST COMPLETED WITH NO ERRORS");
     ui->okLabel->show();
+
+    testlock.unlock();
 }

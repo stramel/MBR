@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMutex>
 
 namespace Ui {
     class MainWindow;
@@ -24,6 +25,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
+    QMutex testlock;
 
 private slots:
     void testLineEdits();
