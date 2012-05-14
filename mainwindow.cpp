@@ -45,7 +45,10 @@ void MainWindow::processInput()
     float hP = ui->inputHighPhi->text().toFloat();
     float lP = ui->inputLowPhi->text().toFloat();
 
-    if(hL == 0.0 || lL == 0.0 || hP == 0.0 || lP == 0.0)
+    if(ui->inputHighLambda->text().isEmpty() ||
+            ui->inputHighPhi->text().isEmpty() ||
+            ui->inputLowLambda->text().isEmpty() ||
+            ui->inputLowPhi->text().isEmpty())
     {
         ui->errorLabel->setText("Please fill in all input values");
         ui->errorLabel->show();
